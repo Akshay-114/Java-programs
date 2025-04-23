@@ -1,0 +1,207 @@
+import java.util.*;
+
+public class Stackex {
+
+ //Static class implementation
+
+ static class MyStack{
+
+ private int top;
+
+ private final int MAX = 3;
+
+ private int[] arr;
+
+ public MyStack() {
+
+ arr = new int[MAX];
+
+ top=-1;
+
+ }
+
+ //full
+
+ public boolean isfull() {
+
+ return top==MAX-1;
+
+ }
+
+ //empty
+
+ public boolean isempty() {
+
+ return top==-1;
+
+ }
+
+// push
+
+ public void push(int value) {
+
+if(isfull()) {
+
+ System.out.println("Stack is full");
+
+  return;
+
+}
+
+ System.out.println("Entered");
+
+ arr[++top]=value;
+
+ System.out.println("Pushed into Stack");
+
+ }
+
+//pop
+
+ public void pop() {
+
+ if(top==-1) {
+
+  System.out.println("Stack is empty ");
+
+ }
+
+ else {
+
+  System.out.println("Element poped : "+arr[top]);
+
+  top--;
+
+ }
+
+ }
+
+ //peek
+
+ public void peek() {
+
+ if(top==-1) {
+
+  System.out.println("Stack is empty ");
+
+ }
+
+ else {
+
+  System.out.println("Peek element : "+arr[top]);
+
+ }
+
+ }
+
+ //display
+
+ public void display() {
+
+ if(top==-1) {
+
+  System.out.println("Stack is empty ");
+
+ }
+
+ else {
+
+ for(int i=0;i<=top;i++) {
+
+  System.out.println(i+" Element : "+arr[i]);
+
+ }
+
+ }
+
+ }
+
+ }
+
+ public static void main(String[] args) {
+
+ int choice;
+
+ Scanner sc=new Scanner(System.in);
+
+ MyStack sta = new MyStack();
+
+ do {
+
+  System.out.println("\t\t1.Push");
+
+  System.out.println("\t\t2.Pop");
+
+  System.out.println("\t\t3.Peek");
+
+  System.out.println("\t\t4.Display");
+
+  System.out.println("\t\t5.IsEmpty");
+
+  System.out.println("\t\t6.IsFull");
+
+  System.out.println("\t\t7.Exit");
+
+  System.out.println("\t\t\nEnter choice :");
+
+  choice=sc.nextInt();
+
+  switch(choice){
+
+  case 1:
+
+   System.out.println("Enter a value : ");
+
+   int value = sc.nextInt();
+
+   sta.push(value);
+
+   break;
+
+  case 2:
+
+   sta.pop();
+
+   break;
+
+  case 3:
+
+   sta.peek();
+
+   break;
+
+  case 4:
+
+   sta.display();
+
+    break;
+
+  case 5:
+
+   System.out.println("Is Stack empty ? "+sta.isempty());
+
+    break;
+
+  case 6:
+
+   System.out.println("Is Stack full ? "+sta.isfull());
+
+    break;
+
+  case 7:
+
+   System.exit(0);
+
+    break;
+
+  default :
+
+   System.out.println("Invalid option!!!");
+
+   break;
+
+ }
+
+ }while(true);
+
+ }}
